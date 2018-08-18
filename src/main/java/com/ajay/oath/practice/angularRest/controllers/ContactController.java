@@ -15,6 +15,11 @@ public class ContactController {
     @Autowired
     ContactRepository contactRepository;
 
+    @RequestMapping("/")
+    public String index() {
+        return "forward:/index.html";
+    }
+    
     @RequestMapping(method=RequestMethod.GET, value="/contacts")
     public Iterable<Contact> contact() {
         return contactRepository.findAll();
